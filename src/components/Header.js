@@ -16,7 +16,7 @@ function Header() {
             </li>
             <li className='cart'>
               <a href='#'>
-                <ion-icon name='basket'></ion-icon>
+              <i class="fas fa-cart-plus"></i>
                 Cart<span>0</span>
               </a>
             </li>
