@@ -1,6 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 
-function Header() {
+import { getNumbers } from "../actions/getActions";
+
+function Header(props) {
+  const num = props.basketNum.basketNumber;
+  console.log("PROPS", num);
   return (
     <div>
       <header>
@@ -16,8 +21,8 @@ function Header() {
             </li>
             <li className='cart'>
               <a href='#'>
-              <i class="fas fa-cart-plus"></i>
-                Cart<span>0</span>
+                <i className='fas fa-cart-plus'></i>
+                Cart<span>{num}</span>
               </a>
             </li>
           </ul>
@@ -27,4 +32,8 @@ function Header() {
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => ({
+  basketNum: state.basketNum,
+});
+
+export default connect(mapStateToProps, { getNumbers })(Header);
